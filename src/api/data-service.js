@@ -1,10 +1,10 @@
 import networkClient from './network-client';
 
 export default {
-    getMovies(params, success, failure) {
-        networkClient.get('discover/movie', success, failure, params);
+    getMovies(actionType, params, success, failure) {
+        networkClient.get('discover/movie', actionType, params, success, failure);
     },
-    getGenres(params, success, failure) {
-        networkClient.get('genre/movie/list', success, failure, params);
+    getGenres(actionType, params, success, failure) {
+        networkClient.get('genre/movie/list', actionType, params, success, failure);
     },
 }

@@ -1,11 +1,10 @@
 <template>
+  <Navbar/>
   <div class="container my-12 mx-auto px-4 md:px-12">
-    <GenreList/>
-    <MovieList/>
+    <router-view></router-view>
   </div>
 </template>
 
 <script setup>
-  import GenreList from './components/genres/GenreList.vue'
-  import MovieList from './components/MovieList.vue'
+  import Navbar from './components/header/Navbar.vue'
 </script>

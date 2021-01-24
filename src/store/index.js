@@ -12,6 +12,7 @@ export const store = createStore({
       pricePerApple: 1.5,
       movies: [],
       genres: [],
+      activeActions: [],
     }
   },
   getters,

@@ -11,6 +11,7 @@ export default {
     },
     [actions.GET_MOVIES]({commit}, params){
         dataService.getMovies(
+            actions.GET_MOVIES,
             {
                 include_adult: false,
                 page: 1,
@@ -22,6 +23,7 @@ export default {
     },
     [actions.GET_GENRES]({commit}, params){
         dataService.getGenres(
+            actions.GET_GENRES,
             {
                 language: 'bg-BG',
             },

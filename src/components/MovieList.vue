@@ -1,5 +1,6 @@
 <template>
-  <div class="flex flex-wrap -mx-1 lg:-mx-4">
+  <Spinner v-if="isLoading"></Spinner>
+  <div class="flex flex-wrap -mx-1 lg:-mx-4" v-else>
     <Movie v-for="movie in store.state.movies"
       :key="movie.id"
       :title="movie.title"
@@ -12,13 +13,15 @@
 
 <script>
 import { useStore } from 'vuex'
-import { onBeforeMount } from 'vue'
+import { onBeforeMount, computed } from 'vue'
 import actions from '../store/action-types'
 import Movie from './Movie.vue'
+import Spinner from '../components/loader/Spinner.vue';
 
 export default {
   components: {
     Movie,
+    Spinner,
   },
   setup(){
     const store = useStore()
@@ -27,19 +30,9 @@ export default {
     })
     return {
       store,
+      isLoading: computed(() => store.state.activeActions.includes(actions.GET_MOVIES)),
     }
   }
 }
 
 </script>
-
-
-
-
-
-
-<style scoped>
-a {
-  color: #42b983;
-}
-</style>
